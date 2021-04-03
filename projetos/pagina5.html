@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+</head>
+<body>
+
+    <div id="app">
+
+        <pricomp v-bind:nomecomp='lista'></pricomp>
+       
+
+        <textarea name="" id="" cols="30" rows="10" v-model='apelido'>
+
+        </textarea>
+        <p>{{apelido}}</p>
+
+        <p>{{ executar}}</p>
+        <p>{{ aplicar() }}</p>
+        <p>{{ ab() }}</p>
+        
+
+    </div>
+
+
+    <script>
+
+        Vue.component('pricomp',{
+            props:['nomecomp'],
+
+
+            template: `
+            <ul>
+                <li v-for='nome in nomecomp'>{{ nome }} </li>
+
+            </ul>`
+
+
+        })
+
+        let app=new Vue({
+
+
+                
+
+                  el:'#app',
+
+                  data:{
+
+                         lista:['Maria','Melany','Mariana', 'Melissa', 'Morena'],
+
+                         apelido:'Oliveira'
+
+
+
+                  }, 
+
+                  computed:{
+
+                       executar(){
+                           console.log('Executar coisas boas.')
+                       }
+                  },
+
+                  methods:{
+
+                    aplicar:function(){
+                        console.log('Metodo aplicado')
+                    },
+
+                  }
+
+
+        })
+
+
+    </script>
+    
+</body>
+</html>

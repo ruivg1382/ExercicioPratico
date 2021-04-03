@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagina 2</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+</head>
+<body>
+    
+
+    <div id="root">
+
+         <h3>Lista de Cartas</h3>
+        <img :src="src" alt=""><br>
+        
+        <button v-on:click='porCondeCopa'>Conde Copa</button>
+        <button v-on:click='porCondeOuro'>Conde de Ouro</button>
+        <p>{{ apresentar}}</p>
+        <novo></novo>
+        <desenho><</desenho>
+        <ativado v-bind:listagem='lista'></ativado>
+   
+
+    </div>
+
+    <script>
+
+        Vue.component('ativado',{
+            props:['listagem'],
+
+            template: `
+            <ul>
+                <li v-for='list in listagem'>{{ list }}</li>
+            </ul>
+            `
+        })
+
+        Vue.component('novo',{
+            template:
+            `<h1>Aqui está o primeiro componente</h1>`
+        }),
+
+        Vue.component('desenho',{
+
+            template:
+            ` <div>O componente de Desenho</div>`
+        })
+        let root=new Vue({
+
+            component:['novo','desenho'],
+
+            el:'#root',
+            data:{
+
+                  lista:['Marta','Sany','Gilda'],
+                  src:''
+
+            },
+            methods:{
+
+                porCondeCopa(){
+                    this.src='../conde1.PNG'
+                },
+
+                porCondeOuro(){
+
+                    this.src='../conde2.PNG'
+
+                }
+            },
+            computed:{
+
+                apresentar(){
+                    console.log("olá Caralho")
+                }
+            }
+        })
+       
+    </script>
+    
+</body>
+</html>

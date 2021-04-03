@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+</head>
+<body>
+
+    <div id="ciclovida">
+
+        <p>{{ message }}</p>
+        <ul>
+            <li v-for='state in states'> {{ state }}</li>
+        </ul>
+
+    </div>
+
+
+    <script>
+        let app=new Vue({
+            el:'#ciclovida',
+            data:{
+                   message:'Ciclo de vida!!',
+                   states:[],
+            },
+            beforeCreate(){
+                console.log("antes de Criar")
+            },
+            created(){
+                
+                fetch('https://servicodados.ibge.gov.br/api/v1/localidades/municipios').then(response=>{
+                    response.json().then(data=>{
+
+                        this.states=data;
+    
+                    })
+                }).catch(err=>{
+                    console.log(err)
+                })
+            },
+            beforeUpdate(){
+                console.log("Antes de atualizar")
+            },
+            updated(){
+                console.log("Atualizado")
+            },
+            beforeMount(){
+                console.log("Antes de Montar")
+            },
+            mounted(){
+                console.log("Montado")
+            },
+            beforeDestroy(){
+                console.log("Antes de destruir")
+            },
+            destroyed(){
+                console.log("Destruído")
+            }
+        }
+
+        
+        
+        
+        
+        
+        )
+    </script>
+    
+</body>
+</html>

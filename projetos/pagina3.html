@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        let pessoa= {
+
+            nome:'Maria Sabado',
+            idade:20,
+
+            trabalhar(){
+
+                console.log("Esta trabalhando!!")
+            }
+        }
+
+        pessoa.sexo='Masculino'
+        console.log(pessoa.sexo)
+        pessoa.trabalhar()
+
+
+        let carro = function(){
+            this.nome='Toyota',
+            this.modelo='TRY789'
+
+            this.aplicar=function(){
+                console.log('Aplicado')
+            }
+        };
+
+
+           let a = function(){
+ 
+
+            return{
+                cor:'Azul',
+                tipo:'Moderno',
+
+                trab(){
+
+                    console.log("Trabalhando todos os dia")
+
+                }
+            }
+           }
+
+           let b=new a()
+
+         console.log(b.cor, b.tipo)
+         console.log(b.trab())
+        
+        
+    </script>
+</body>
+</html>

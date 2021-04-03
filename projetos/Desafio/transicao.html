@@ -1,0 +1,81 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+    <title>Document</title>
+
+    <style>
+        .identificador-enter-active{
+
+            transition:opacity 0;
+
+        }
+        .identificador-leave-active{
+             transition: opacity .5s ease-out;
+        }
+
+        .identificador-enter, .identificador-leave-to {
+
+            opacity:0;
+
+        }
+
+        .segundo-enter-active{
+
+            transition:all .3s linear;
+
+        }
+
+        .segundo-leave-active{
+            transition:all .5s linear;
+        }
+
+        .segundo-enter, .segundo-leave-to{
+            opacity:0;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="app">
+        <transition name="identificador">
+
+            <h2 v-if='show'>Cabo Verde Paradise</h2>
+
+        </transition>
+
+
+        <transition name="segundo">
+            <div v-if="show2">
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                 Tempora labore doloremque unde neque fugit voluptatum nihil eos odio et 
+                doloribus! Accusamus eum soluta, cumque explicabo adipisci
+                 aspernatur esse eaque iure!
+                 
+            </div>
+           
+        </transition>
+        <button @click='show2=!show2'>Alterar transition</button>
+       
+        
+    </div>
+
+
+    <script>
+
+        const app=new Vue({
+
+            el:'#app',
+            data:{
+
+                show:true,
+                show2:true,
+            }
+        })
+    </script>
+    
+</body>
+</html>

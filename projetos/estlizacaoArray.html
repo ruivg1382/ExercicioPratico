@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+</head>
+<body>
+
+
+    <div id="app">
+
+        <p :style="[corT,tam,fundo]">
+            Lorem ipsum dolor sit amet, consectetur adipisicing
+             elit. Ratione, voluptas asperiores architecto quibusdam 
+             itaque iure ea, repudiandae labore aliquid
+             nam velit ipsum nesciunt exercitationem atque aspernatur
+              magnam earum repellendus eligendi!
+            </p>
+
+    </div>
+
+
+
+
+    <script>
+
+        let app=new Vue({
+
+
+            el:'#app',
+            data:{
+
+                corT:{
+
+                    color:'red',
+
+                },
+                tam:{
+
+                    fontSize:26
+
+                },
+                fundo:{
+                    backgroundColor:'yellow'
+                }
+            }
+        })
+
+    </script>
+    
+</body>
+</html>

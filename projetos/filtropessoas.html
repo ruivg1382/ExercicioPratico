@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+       <ul>
+           <input  v-on:keyup="filtro">
+           <li v-for='pessoa in personFiltred'>{{ pessoa }}</li>
+       </ul>
+
+        
+    </div>
+
+    <script>
+
+        let app=new Vue({
+
+            el:'#app',
+            data:{
+
+                person:['Maria Landim','Carla Oliveira','Marta Oliveira','Gilson Costa','Miguel Soares'],
+                personFiltred:[],
+                
+            },
+
+            methods:{
+
+            },
+            filtro(event){
+
+                this.personFiltred=this.person.filter(nome=>{
+                    return nome.toUpperCase().includes(event.target.value.toUpperCase());
+                })
+
+            },
+            created(){
+                this.personFiltred=this.person
+            }
+        })
+
+    </script>
+    
+</body>
+</html>

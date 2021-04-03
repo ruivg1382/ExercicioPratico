@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <p v-bind:style="{color:cortexto, fontSize:tamanho+'px'}">Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
+            Recusandae libero autem consequatur fugiat, quia sequi nulla. 
+            Rem quia ad autem, repudiandae cupiditate alias! Doloribus dolores culpa repellendus
+             consectetur non hic!</p>
+
+
+             <input type="text" v-model='cortexto'>
+             <input type="text" v-model="tamanho">
+
+    </div>
+
+    <script>
+
+        let app=new Vue({
+
+            el:'#app',
+            data:{
+                cortexto:'red',
+                tamanho:12 
+            }
+        })
+
+    </script>
+</body>
+</html>

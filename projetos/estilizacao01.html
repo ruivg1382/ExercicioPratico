@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+</head>
+<body>
+
+    <div id="app">
+          
+
+        <input type="text" placeholder="tamanho da letra" v-model='tamanhoLetra'>
+
+        <p v-bind:style="{ fontSize:tamanhoLetra+'px'}">Rui Gonçalves</p>
+
+
+        <input type="text" v-model="vermelho">
+        <input type="text" v-model="verde">
+        <input type="text" v-model="azul">
+
+
+        <p :style="corRgb">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+             Assumenda minima dignissimos in nesciunt totam voluptates temporibus aspernatur 
+            adipisci, sint iusto fugit quaerat sunt reprehenderit 
+            tempore vero animi. Nulla, vero voluptatum.
+        </p>
+
+
+    </div>
+
+
+
+
+
+    <script>
+
+
+        let app=new Vue({
+
+
+            el:'#app',
+
+            data:{
+
+                tamanhoLetra:20,
+                vermelho:200,
+                verde:20,
+                azul:20,
+
+                
+
+
+            },
+
+            computed:{
+                corRgb(){
+                    return {color:`rgb(${this.vermelho}, ${this.verde},${this.azul})`}
+                }
+            }
+
+            
+        })
+
+
+
+    </script>
+    
+</body>
+</html>

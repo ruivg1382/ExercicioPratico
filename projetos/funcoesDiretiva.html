@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+</head>
+<body>
+
+    <div id="app">
+
+        <p v-capitalize>{{ message}}</p>
+        <p v-custom>{{ name }}</p>
+        <p v-custom="'informacao'">{{ name }}</p>
+        <p v-custom.mod1.mod2="'informatica'">{{ name }}</p>
+
+    </div>
+
+    <script>
+        let app=new Vue({
+
+            el:'#app',
+            data:{
+
+                message:'Olá funções da diretiva',
+                name:'Fernando Couto'
+            },
+            directives:{
+                capitalize:{
+                    bind(element){
+
+                        console.log('elemento vinculado')
+                    },
+                inserted(element){
+                    console.log("elemento inserido");
+
+                    let words=element.innerText.split('');
+                    words.forEach((text, index)=>{
+                        words[index]=text.charAt(0).toUpperCase()+text.slice(1);
+
+                    });
+
+                    element.innerText=words.join(' ');
+                },
+
+                update(element){
+                    console.log('Atualizado')
+                },
+                unbind(element){
+
+                    console.log('Desvinculado')
+                },
+                componentUpdated(element){
+                    console.log('componente atualizado')
+                }
+                },
+                custom:{
+                    inserted(element,binding){
+                        console.log(binding)
+                        element.style.color='blue';
+                    }
+                }
+            }
+        })
+    </script>
+    
+</body>
+</html>

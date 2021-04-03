@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=script, initial-scale=1.0">
+    <title>Document</title>
+    
+</head>
+<body>
+    <div id="app">
+        <input type="text" v-model="nome"><br>
+        {{nome}}
+        <p v-if='situacao'>
+            Ami é fã de escrev código.
+
+        </p>
+        <p v-else>
+            Ami un´ka gosta de escrev código
+        </p>
+
+        <button v-on:click='apresentar'>alterar</button>
+        <p v-for='adepto in adeptos'>{{adepto.nome}} tem {{ adepto.idade}} anos</p>
+        
+    </div>
+
+    <div id="exercicio">
+        <input type="text" v-model='nome'>
+        {{nome}}
+        <button v-on:click="adicionarPessoa">Inserir</button>
+        <ul>
+            <li v-for="listasP in lista">{{listasP}}</li>
+        </ul>
+        <p>Total :<b>{{total}}</b></p>
+
+       
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+    <script>
+
+        let app=new Vue({
+
+            el:'#app',
+
+            data:{
+
+                nome:'Rui José Da Veiga Gonçalves',
+                situacao:true,
+                adeptos:[
+                          {nome:'Maria', idade:60},
+                          {nome:'Rui', idade:35},
+                
+                
+                ]
+
+
+            },
+            methods:{
+                apresentar(){
+
+                    this.situacao=!this.situacao
+                    
+                }
+            }
+        });
+
+        let exercicio=new Vue({
+
+            el:'#exercicio',
+            data:{
+
+                nome:'',
+                lista:[],
+                total:0,
+            },
+
+            methods:{
+
+                adicionarPessoa(){
+
+                    
+                    this.lista.push(this.nome)
+                    this.nome=''
+                    this.total=this.lista.length
+                }
+            }
+        })
+
+    </script>
+</body>
+</html>

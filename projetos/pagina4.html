@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+</head>
+<body>
+
+    <div id="container">
+        <componente1 v-bind:propriedade='lista'></componente1>
+        <button v-on:click='click()'>Click</button>
+        <p>{{ nome }}</p>
+
+
+        <input type="text" v-model='apelido'>
+        
+
+    </div>
+
+
+
+    <script>
+
+        Vue.component('componente1',{
+
+            props:['propriedade'],
+
+            template: `<ul>
+             <li v-for='nome in propriedade'> {{ nome }}</li>
+            </ul> `,
+        })
+
+        let app=new Vue({
+           
+
+            el:'#container',
+
+            data:{
+
+                lista:['Maria','Ana','Arlinda','Roana','Yasmin','Emma','Amarilis'],
+                nome:'',
+
+                apelido:'Goleador'
+
+
+            },
+
+            watch:{
+
+                    apelido:function(novo){
+
+                        console.log(novo)
+
+                    }
+
+
+            },
+
+            methods:{
+
+                click:function(){
+                    this.nome='Melany'
+                }
+
+
+            },
+
+            created:function(){
+                console.log('Algo criado aqui')
+            },
+            mounted:function(){
+
+                console.log("Montada")
+            },
+
+            updated:function(){
+                console.log('Atualizado')
+            },
+
+            destroy:function(){
+                console.log('Destruído')
+            }
+        })
+
+        
+
+    </script>
+    
+</body>
+</html>

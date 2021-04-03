@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+</head>
+<body>
+
+    <div id="app">
+
+        <h3 v-if='carro >=3'>Temos {{ carro }} na Fila.</h3>
+        <h3 v-else-if='carro< 3'>Temos poucos carros</h3>
+        <h3 v-else>Não há carro na fila.</h3>
+
+    </div>
+
+    <div id="container">
+        <ul>
+            <li v-for='alunos in aluno'>{{ aluno }}</li>
+        </ul>
+        <div v-html='textohtml'></div>
+
+        </div>
+
+    </div>
+
+
+    <script>
+
+        let app=new Vue({
+            el:'#app',
+            data:{
+
+                carro:100,
+            }
+        });
+
+
+        let container=new Vue({
+
+            el:'#container',
+            data:{
+                 aluno:['Maria','Melany','Gilson','Gabriel'],
+                 textohtml: `
+                 <h1>Texto de Html</h1>
+                 <img src="../conde1.PNG" />
+                 <p>É nós que sta manda</p>
+                 `
+            }
+        })
+
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+</head>
+<body>
+
+    <div id="app">
+
+        <component-um>
+            <template v-slot:para>Cabo Verde</template>
+        </component-um>
+        <component-um>Rui goleador</component-um>
+        <component-um>
+            <template v-slot:cabecalho>ABC</template>
+        </component-um>
+
+    </div>
+
+
+    <script>
+
+        Vue.component('component-um',{
+
+            template: `
+            <div>
+              
+                <h1><slot name="cabecalho"></slot></h1>
+                
+                <p><slot name="para"></slot></p>
+            </div>
+            `
+        })
+        let app=new Vue({
+
+            el:'#app',
+            data:{
+
+
+            }
+        })
+    </script>
+    
+</body>
+</html>
